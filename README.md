@@ -11,6 +11,11 @@ Automate the process of onboarding new developers by efficiently managing user a
 LOG_FILE="/var/log/user_management.log"
 PASSWORD_FILE="/var/secure/user_passwords.txt"
 
+# Ensure the /var/secure directory exists
+if [ ! -d "/var/secure" ]; then
+    mkdir -p /var/secure
+    chmod 700 /var/secure
+fi
 # Ensure the log file and password file exist and have correct permissions
 touch $LOG_FILE
 touch $PASSWORD_FILE
